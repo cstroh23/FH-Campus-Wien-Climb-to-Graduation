@@ -11,9 +11,9 @@ public class Player_FightMovement : MonoBehaviour
 
     private Animator animator;
 
-    //private void Awake() {
-    //    animator = GetComponent<Animator>();
-    //}
+    private void Awake() {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -25,7 +25,7 @@ public class Player_FightMovement : MonoBehaviour
 
             if (inputX != 0)
             {
-                //animator.SetFloat("moveX", inputX);
+                animator.SetFloat("moveX", inputX);
 
                 var targetPos = transform.position;
                 targetPos.x += inputX;
@@ -34,7 +34,7 @@ public class Player_FightMovement : MonoBehaviour
             }
         }
 
-        //animator.SetBool("isMoving", isMoving);
+        animator.SetBool("isMoving", isMoving);
     }
 
     private IEnumerator Move(Vector3 targetPos)
