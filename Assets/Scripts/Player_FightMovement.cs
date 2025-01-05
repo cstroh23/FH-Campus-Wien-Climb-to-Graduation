@@ -7,6 +7,7 @@ public class Player_FightMovement : MonoBehaviour
 {
     public float moveSpeed;
     private bool isMoving;
+    private bool isShooting;
     private float inputX;
 
     private Animator animator;
@@ -17,24 +18,31 @@ public class Player_FightMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!isMoving)
-        {
-            inputX = Input.GetAxisRaw("Horizontal");
-
-            Debug.Log("This is input.x: " + inputX);
-
-            if (inputX != 0)
+         if (!isShooting) {// Only allow movement if not shooting
+            if (!isMoving)
             {
-                animator.SetFloat("moveX", inputX);
+                inputX = Input.GetAxisRaw("Horizontal");
 
-                var targetPos = transform.position;
-                targetPos.x += inputX;
+                Debug.Log("This is input.x: " + inputX);
 
-                StartCoroutine(Move(targetPos)); // Call the coroutine to move the player
+                if (inputX != 0)
+                {
+                    animator.SetFloat("moveX", inputX);
+
+                    var targetPos = transform.position;
+                    targetPos.x += inputX;
+
+                    StartCoroutine(Move(targetPos)); // Call the coroutine to move the player
+                }
             }
-        }
+            animator.SetBool("isMoving", isMoving);
+         }
 
-        animator.SetBool("isMoving", isMoving);
+         // Check for shooting input (Spacebar)
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(Shoot());
+        }
     }
 
     private IEnumerator Move(Vector3 targetPos)
@@ -49,5 +57,17 @@ public class Player_FightMovement : MonoBehaviour
 
         transform.position = targetPos; // Snap to the final target position to avoid small errors
         isMoving = false;
+    }
+
+     private IEnumerator Shoot()
+    {
+        isShooting = true;
+        animator.SetBool("isShooting", true);
+
+        // Wait for the shooting animation to complete
+        yield return new WaitForSeconds(0.5f); // Adjust this duration to match your animation length
+
+        animator.SetBool("isShooting", false);
+        isShooting = false;
     }
 }
