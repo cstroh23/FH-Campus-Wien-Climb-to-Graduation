@@ -1,7 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
-using System.Collections; // Required for using coroutines
+using System.Collections;
 
 public class Player_FightMovement : MonoBehaviour
 {
@@ -10,20 +8,24 @@ public class Player_FightMovement : MonoBehaviour
     private bool isShooting;
     private float inputX;
 
+    public Transform bulletSpawnPoint; // Punkt, an dem die Bullet spawnt
+    private BulletPool bulletPool;     // Referenz zum Bullet-Pool
+
     private Animator animator;
 
-    private void Awake() {
+    private void Awake()
+    {
         animator = GetComponent<Animator>();
+        bulletPool = Object.FindFirstObjectByType<BulletPool>(); // Hole den Bullet-Pool
     }
 
     private void Update()
     {
-         if (!isShooting) {// Only allow movement if not shooting
+        if (!isShooting) // Nur bewegen, wenn nicht geschossen wird
+        {
             if (!isMoving)
             {
                 inputX = Input.GetAxisRaw("Horizontal");
-
-                Debug.Log("This is input.x: " + inputX);
 
                 if (inputX != 0)
                 {
@@ -32,13 +34,13 @@ public class Player_FightMovement : MonoBehaviour
                     var targetPos = transform.position;
                     targetPos.x += inputX;
 
-                    StartCoroutine(Move(targetPos)); // Call the coroutine to move the player
+                    StartCoroutine(Move(targetPos)); // Bewege den Spieler
                 }
             }
             animator.SetBool("isMoving", isMoving);
-         }
+        }
 
-         // Check for shooting input (Spacebar)
+        // Schießen bei Space-Taste
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(Shoot());
@@ -55,19 +57,25 @@ public class Player_FightMovement : MonoBehaviour
             yield return null;
         }
 
-        transform.position = targetPos; // Snap to the final target position to avoid small errors
+        transform.position = targetPos; // Setze die Position exakt
         isMoving = false;
     }
 
-     private IEnumerator Shoot()
+    private IEnumerator Shoot()
     {
         isShooting = true;
         animator.SetBool("isShooting", true);
 
-        // Wait for the shooting animation to complete
-        yield return new WaitForSeconds(0.5f); // Adjust this duration to match your animation length
+        // Warte, bis die Animation abläuft
+        yield return new WaitForSeconds(0.2f);
 
         animator.SetBool("isShooting", false);
+
+        // Bullet aus dem Pool holen und positionieren
+        GameObject bullet = bulletPool.GetBullet();
+        bullet.transform.position = bulletSpawnPoint.position;
+        bullet.transform.rotation = Quaternion.identity;
+
         isShooting = false;
     }
 }
