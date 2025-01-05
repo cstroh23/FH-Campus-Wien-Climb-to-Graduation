@@ -11,6 +11,8 @@ public class Player2Movement : MonoBehaviour
 
     private Animator animator;
 
+    public LayerMask  solidObjectsLayer;
+
     private void Awake() {
         animator = GetComponent<Animator>();
     }
@@ -35,8 +37,9 @@ public class Player2Movement : MonoBehaviour
                 var targetPos = transform.position;
                 targetPos.x += input.x;
                 targetPos.y += input.y;
-
-                StartCoroutine(Move(targetPos)); // Call the coroutine to move the player
+                
+                if (IsWalkable(targetPos))
+                    StartCoroutine(Move(targetPos)); // Call the coroutine to move the player
             }
         }
 
@@ -56,5 +59,12 @@ public class Player2Movement : MonoBehaviour
 
         transform.position = targetPos; // Snap to the final target position to avoid small errors
         isMoving = false;
+    }
+
+    private bool IsWalkable(Vector3 targetPos) {
+        if(Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null) {
+            return false;
+        }
+        return true;
     }
 }
