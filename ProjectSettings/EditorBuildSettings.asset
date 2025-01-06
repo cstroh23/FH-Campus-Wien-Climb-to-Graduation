@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: f26977c550565334f8b3910ef3d000da
+  - enabled: 1
+    path: Assets/Scenes/SettingsScene.unity
+    guid: 81266a4e26d8932408bb59d2d98ffb8a
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/BossFightScene.unity
+    guid: f563f6cfc83ec80438cda37ec0c38bb7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
