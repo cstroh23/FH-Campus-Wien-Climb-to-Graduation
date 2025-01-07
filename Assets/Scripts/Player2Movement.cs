@@ -91,22 +91,31 @@ public class Player2Movement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
+{
+    Debug.Log("Collided with: " + collision.gameObject.name); // Debug-Info ausgeben
+
+    if (collision.CompareTag("Enemy"))
     {
-        // Dialog-Box anzeigen, wenn der Spieler den NPC berührt
-        if (collision.CompareTag("Enemy")) // Der NPC muss das Tag "Enemy" haben
-        {
-            ShowDialog();
-        }
+        ShowDialog(); // Dialog-Box anzeigen
     }
+}
+
 
     private void ShowDialog()
+{
+    Debug.Log("ShowDialog called"); // Debug-Ausgabe zur Überprüfung
+    isDialogActive = true;
+    if (dialogBox != null)
     {
-        isDialogActive = true; // Dialog als aktiv markieren
-        if (dialogBox != null)
-        {
-            dialogBox.SetActive(true); // Dialog-Box anzeigen
-        }
+        dialogBox.SetActive(true); // Dialog-Box anzeigen
+        Debug.Log("Dialog box set active");
     }
+    else
+    {
+        Debug.LogError("Dialog box is not assigned in the Inspector");
+    }
+}
+
 
     private void CloseDialog()
     {
