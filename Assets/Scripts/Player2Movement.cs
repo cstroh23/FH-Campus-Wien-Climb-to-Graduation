@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; // Für Szenenwechsel
-using System.Collections; // Für IEnumerator
+using System.Collections;
+using Unity.Multiplayer.Center.Common.Analytics; // Für IEnumerator
 
 public class Player2Movement : MonoBehaviour
 {
@@ -10,37 +11,15 @@ public class Player2Movement : MonoBehaviour
 
     private Animator animator; // Animator für Bewegungsanimationen
     public LayerMask solidObjectsLayer; // Layer für Hindernisse
-
-    public GameObject dialogBox; // Dialog-Box (z. B. das Panel in Unity)
-    private bool isDialogActive = false; // Überprüfen, ob die Dialog-Box aktiv ist
+    public LayerMask interactableLayer;
 
     private void Awake()
     {
         animator = GetComponent<Animator>(); // Animator initialisieren
     }
 
-    private void Start()
-    {
-        // Sicherstellen, dass das Dialog-Panel zu Beginn inaktiv ist
-        if (dialogBox != null)
-        {
-            dialogBox.SetActive(false);
-        }
-    }
-
     private void Update()
     {
-        // Wenn der Dialog aktiv ist, auf "Enter" warten
-        if (isDialogActive)
-        {
-            if (Input.GetKeyDown(KeyCode.Return)) // Warten auf die Enter-Taste
-            {
-                CloseDialog();
-                SceneManager.LoadScene("BossFightScene"); // Wechsel zur BossFightScene
-            }
-            return; // Verhindern, dass der Spieler sich während des Dialogs bewegt
-        }
-
         if (!isMoving)
         {
             // Spielerbewegung steuern
@@ -67,6 +46,21 @@ public class Player2Movement : MonoBehaviour
         }
 
         animator.SetBool("isMoving", isMoving);
+
+        if (Input.GetKeyDown(KeyCode.Z))
+            Interact();
+    }
+
+    void Interact() {
+        var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
+        var interactPos = transform.position + facingDir;
+
+        //Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
+
+        var collider = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
+        if (collider != null) {
+            collider.GetComponent<Interactable>()?.Interact();
+        }
     }
 
     private IEnumerator Move(Vector3 targetPos)
@@ -87,42 +81,9 @@ public class Player2Movement : MonoBehaviour
     private bool IsWalkable(Vector3 targetPos)
     {
         // Überprüfen, ob Zielposition begehbar ist
-        return Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) == null;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-{
-    Debug.Log("Collided with: " + collision.gameObject.name); // Debug-Info ausgeben
-
-    if (collision.CompareTag("Enemy"))
-    {
-        ShowDialog(); // Dialog-Box anzeigen
-    }
-}
-
-
-    private void ShowDialog()
-{
-    Debug.Log("ShowDialog called"); // Debug-Ausgabe zur Überprüfung
-    isDialogActive = true;
-    if (dialogBox != null)
-    {
-        dialogBox.SetActive(true); // Dialog-Box anzeigen
-        Debug.Log("Dialog box set active");
-    }
-    else
-    {
-        Debug.LogError("Dialog box is not assigned in the Inspector");
-    }
-}
-
-
-    private void CloseDialog()
-    {
-        isDialogActive = false; // Dialog als inaktiv markieren
-        if (dialogBox != null)
-        {
-            dialogBox.SetActive(false); // Dialog-Box verstecken
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactableLayer) != null) {
+            return false;
         }
+        return true;
     }
 }
