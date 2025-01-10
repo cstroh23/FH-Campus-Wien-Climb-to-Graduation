@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour {
     [SerializeField] GameObject dialogBox;
@@ -43,6 +44,7 @@ public class DialogManager : MonoBehaviour {
                 dialogBox.SetActive(false);
                 currentLine = 0;
                 OnHideDialog?.Invoke();
+                SceneManager.LoadScene("BossFightScene");
             }
         }
     }
