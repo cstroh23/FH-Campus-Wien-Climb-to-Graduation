@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement; // Für Szenenwechsel
 using System.Collections;
 using Unity.Multiplayer.Center.Common.Analytics; // Für IEnumerator
 
-public class Player2Movement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float moveSpeed; // Bewegungsgeschwindigkeit des Spielers
     private bool isMoving; // Überprüfen, ob der Spieler sich bewegt
@@ -18,7 +18,7 @@ public class Player2Movement : MonoBehaviour
         animator = GetComponent<Animator>(); // Animator initialisieren
     }
 
-    private void Update()
+    public void HandleUpdate()
     {
         if (!isMoving)
         {

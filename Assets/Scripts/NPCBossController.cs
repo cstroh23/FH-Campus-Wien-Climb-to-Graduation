@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement; // For scene management
 using System.Collections; // Required for IEnumerator
 
 
-public class EnemyMovement : MonoBehaviour, Interactable
+public class NPCBossController : MonoBehaviour, Interactable
 {
     public float moveSpeed = 2f;
     private Vector3[] directions = new Vector3[4];
@@ -11,13 +11,15 @@ public class EnemyMovement : MonoBehaviour, Interactable
 
     private Animator animator;
 
+    [SerializeField] Dialog dialog;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
     public void Interact() {
-        Debug.Log("You will start the BossBattle");
+        StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
     }
 
     private void Start()
