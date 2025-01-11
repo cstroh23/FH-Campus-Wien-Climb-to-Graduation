@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     public void HandleUpdate()
     {
+        if (Time.timeScale == 0f) return; // Bewegung stoppen, wenn pausiert
+        
         if (!isMoving)
         {
             // Spielerbewegung steuern

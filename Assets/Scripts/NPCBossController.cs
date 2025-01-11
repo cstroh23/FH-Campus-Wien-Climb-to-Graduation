@@ -36,6 +36,7 @@ public class NPCBossController : MonoBehaviour, Interactable
     {
         while (true)
         {
+            if (Time.timeScale == 0f) yield return null; // Bewegung pausieren
             animator.SetFloat("moveX", directions[currentDirection].x);
             animator.SetFloat("moveY", directions[currentDirection].y);
             animator.SetBool("isMoving", true);
