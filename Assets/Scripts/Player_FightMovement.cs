@@ -8,10 +8,21 @@ public class Player_FightMovement : MonoBehaviour
     private bool isShooting;
     private float inputX;
 
+    //public int maxHealth = 100;
+   // public int currentHealth;
+    //public HealthBar healthBar;
+
     public Transform bulletSpawnPoint; // Punkt, an dem die Bullet spawnt
     private BulletPool bulletPool;     // Referenz zum Bullet-Pool
 
     private Animator animator;
+
+    /*void start()
+    {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
+    */
 
     private void Awake()
     {
@@ -45,7 +56,21 @@ public class Player_FightMovement : MonoBehaviour
         {
             StartCoroutine(Shoot());
         }
+        //*******Here is the code of when the character takes damage******************
+       /* if (input.GetKeyDown(KeyCode.Space))
+        {
+          TakeDamage(20);
+        }
+        */
+        
     }
+
+    /*void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.setHealth(currentHealth);
+    }
+    */
 
     private IEnumerator Move(Vector3 targetPos)
     {
