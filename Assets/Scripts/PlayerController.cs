@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask solidObjectsLayer; // Layer für Hindernisse
     public LayerMask interactableLayer;
     public LayerMask damageObjectsLayer;
+    [SerializeField] GameObject dialogBox;
 
     private void Awake()
     {
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isMoving", isMoving);
 
         if (Input.GetKeyDown(KeyCode.E))
+            dialogBox.SetActive(false);
             Interact();
     }
 
