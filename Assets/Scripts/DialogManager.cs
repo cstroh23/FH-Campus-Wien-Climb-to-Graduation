@@ -15,6 +15,7 @@ public class DialogManager : MonoBehaviour {
 
     public event System.Action OnShowDialog;
     public event System.Action OnHideDialog;
+    [SerializeField] private NPCController npcController;
 
     public static DialogManager Instance { get; private set; }
 
@@ -44,7 +45,11 @@ public class DialogManager : MonoBehaviour {
                 dialogBox.SetActive(false);
                 currentLine = 0;
                 OnHideDialog?.Invoke();
-                SceneManager.LoadScene("BossFightScene");
+                if (npcController != null) {
+                    if (npcController.isBoss() == true) {
+                        SceneManager.LoadScene("BossFightScene");
+                    }
+                } 
             }
         }
     }

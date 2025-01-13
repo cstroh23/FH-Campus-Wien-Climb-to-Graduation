@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement; // For scene management
 using System.Collections; // Required for IEnumerator
 
 
-public class NPCBossController : MonoBehaviour, Interactable
+public class NPCController : MonoBehaviour, Interactable
 {
     public float moveSpeed = 2f;
     private Vector3[] directions = new Vector3[4];
@@ -12,18 +12,22 @@ public class NPCBossController : MonoBehaviour, Interactable
     private Animator animator;
 
     [SerializeField] Dialog dialog;
+    [SerializeField] bool boss;
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
+    public bool isBoss() {
+        return boss;
     }
-
     public void Interact() {
         StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
     }
-
+    private void Awake()
+    {
+        if (!boss) return;
+        animator = GetComponent<Animator>();
+    }
     private void Start()
     {
+        if (!boss) return;
         directions[0] = Vector3.up;
         directions[1] = Vector3.left;
         directions[2] = Vector3.down;
@@ -34,6 +38,7 @@ public class NPCBossController : MonoBehaviour, Interactable
 
     private IEnumerator MoveEnemy()
     {
+        if (!boss) yield break;
         while (true)
         {
             if (Time.timeScale == 0f) yield return null; // Bewegung pausieren
