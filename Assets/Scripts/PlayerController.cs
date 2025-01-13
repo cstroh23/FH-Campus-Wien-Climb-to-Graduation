@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator; // Animator für Bewegungsanimationen
     public LayerMask solidObjectsLayer; // Layer für Hindernisse
     public LayerMask interactableLayer;
+    public LayerMask damageObjectsLayer;
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public void HandleUpdate()
     {
         if (Time.timeScale == 0f) return; // Bewegung stoppen, wenn pausiert
-        
+
         if (!isMoving)
         {
             // Spielerbewegung steuern
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
     private bool IsWalkable(Vector3 targetPos)
     {
         // Überprüfen, ob Zielposition begehbar ist
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactableLayer) != null) {
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactableLayer | damageObjectsLayer) != null) {
             return false;
         }
         return true;
