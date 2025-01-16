@@ -8,21 +8,15 @@ public class Player_FightMovement : MonoBehaviour
     private bool isShooting;
     private float inputX;
 
-    //public int maxHealth = 100;
-   // public int currentHealth;
-    //public HealthBar healthBar;
+    public int maxHealth = 100;      // Max health of the player
+    private int currentHealth;      // Current health of the player
+
+    public HealthBar healthBar;     // Reference to the health bar
 
     public Transform bulletSpawnPoint; // Punkt, an dem die Bullet spawnt
     private BulletPool bulletPool;     // Referenz zum Bullet-Pool
 
     private Animator animator;
-
-    /*void start()
-    {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-    }
-    */
 
     private void Awake()
     {
@@ -30,9 +24,17 @@ public class Player_FightMovement : MonoBehaviour
         bulletPool = Object.FindFirstObjectByType<BulletPool>(); // Hole den Bullet-Pool
     }
 
+    private void Start()
+    {
+        // Initialize health
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth); // Set the health bar's max value
+    }
+
     private void Update()
     {
-        if (!isShooting) // Nur bewegen, wenn nicht geschossen wird
+        // Movement
+        if (!isShooting)
         {
             if (!isMoving)
             {
@@ -51,26 +53,33 @@ public class Player_FightMovement : MonoBehaviour
             animator.SetBool("isMoving", isMoving);
         }
 
-        // Schießen bei Space-Taste
+        // Shooting
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(Shoot());
         }
-        //*******Here is the code of when the character takes damage******************
-       /* if (input.GetKeyDown(KeyCode.Space))
-        {
-          TakeDamage(20);
-        }
-        */
-        
     }
 
-    /*void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
+        // Reduce player's health
         currentHealth -= damage;
+
+        // Update health bar
         healthBar.setHealth(currentHealth);
+
+        // Check if health is 0 or below
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
-    */
+
+    private void Die()
+    {
+        Debug.Log("Player has died!");
+        // Add death logic (e.g., reload scene, show game over screen, etc.)
+    }
 
     private IEnumerator Move(Vector3 targetPos)
     {
