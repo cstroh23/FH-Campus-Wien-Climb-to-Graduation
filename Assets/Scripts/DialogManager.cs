@@ -15,7 +15,6 @@ public class DialogManager : MonoBehaviour {
 
     public event System.Action OnShowDialog;
     public event System.Action OnHideDialog;
-    [SerializeField] private NPCController npcController;
 
     public static DialogManager Instance { get; private set; }
 
@@ -26,11 +25,12 @@ public class DialogManager : MonoBehaviour {
     Dialog dialog;
     int currentLine = 0;
     bool isTyping;
+    bool boss;
 
-    public IEnumerator ShowDialog(Dialog dialog) {
+    public IEnumerator ShowDialog(Dialog dialog, bool boss) {
         yield return new WaitForEndOfFrame();
         OnShowDialog?.Invoke();
-
+        this.boss = boss;
         this.dialog = dialog;
         dialogBox.SetActive(true);
         StartCoroutine(TypeDialog(dialog.Lines[0]));
@@ -45,12 +45,10 @@ public class DialogManager : MonoBehaviour {
                 dialogBox.SetActive(false);
                 currentLine = 0;
                 OnHideDialog?.Invoke();
-                if (npcController != null) {
-                    if (npcController.isBoss() == true) {
-                        SceneManager.LoadScene("BossFightScene");
-                    }
-                } 
-            }
+                if (boss) {
+                    SceneManager.LoadScene("BossFightScene");
+                }
+             } 
         }
     }
 

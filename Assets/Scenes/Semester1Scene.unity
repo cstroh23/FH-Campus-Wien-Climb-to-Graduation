@@ -181,7 +181,6 @@ MonoBehaviour:
   dialogBox: {fileID: 650452308}
   dialogText: {fileID: 1326039726}
   lettersPerSecond: 40
-  npcController: {fileID: 231715522}
 --- !u!114 &104218724
 MonoBehaviour:
   m_ObjectHideFlags: 0

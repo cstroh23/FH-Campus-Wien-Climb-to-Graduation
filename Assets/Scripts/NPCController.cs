@@ -14,11 +14,15 @@ public class NPCController : MonoBehaviour, Interactable
     [SerializeField] Dialog dialog;
     [SerializeField] bool boss;
 
-    public bool isBoss() {
-        return boss;
-    }
     public void Interact() {
-        StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+        Debug.Log("Is NPC Boss: " + boss);
+        if (Input.GetKeyUp(KeyCode.E)) {
+            if (!boss) {
+                StartCoroutine(DialogManager.Instance.ShowDialog(dialog, boss));
+            } else if (boss){
+            StartCoroutine(DialogManager.Instance.ShowDialog(dialog, boss));
+            }
+        }
     }
     private void Awake()
     {
