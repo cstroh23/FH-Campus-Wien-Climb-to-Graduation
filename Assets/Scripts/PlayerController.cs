@@ -8,28 +8,16 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed; // Bewegungsgeschwindigkeit des Spielers
     private bool isMoving; // Überprüfen, ob der Spieler sich bewegt
     private Vector2 input; // Eingaben des Spielers
-    public int maxHealth = 100;      // Max health of the player
-    public HealthBar healthBar;     // Reference to the health bar
-    private int currentHealth;      // Current health of the player
-    private bool canExecute = true; // Kontrollvariable
 
     private Animator animator; // Animator für Bewegungsanimationen
     public LayerMask solidObjectsLayer; // Layer für Hindernisse
     public LayerMask interactableLayer;
     public LayerMask damageObjectsLayer;
     [SerializeField] GameObject dialogBox;
-    [SerializeField] GameObject dialogBoxEnd;
 
     private void Awake()
     {
         animator = GetComponent<Animator>(); // Animator initialisieren
-    }
-
-     private void Start()
-    {
-        // Initialize health
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth); // Set the health bar's max value
     }
 
     public void HandleUpdate()
@@ -96,31 +84,9 @@ public class PlayerController : MonoBehaviour
     private bool IsWalkable(Vector3 targetPos)
     {
         // Überprüfen, ob Zielposition begehbar ist
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactableLayer) != null) {
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactableLayer | damageObjectsLayer) != null) {
             return false;
-        } else if (Physics2D.OverlapCircle(targetPos, 0.2f, damageObjectsLayer) != null) {
-            if (canExecute) {
-                Debug.Log("Player gets Damage");
-                currentHealth = (int)healthBar.getHealth() - 5;
-                healthBar.setHealth(currentHealth);
-                StartCoroutine(DelayFunction()); // start waiting time
-            } else {
-                Debug.Log("Waiting time to damage again.");
-            }
-            if (healthBar.getHealth()==0) {
-                dialogBoxEnd.SetActive(true);
-                 if (Input.GetKeyDown(KeyCode.F)) {
-                    dialogBoxEnd.SetActive(false);
-                    SceneManager.LoadScene("HomeScene");
-                 }
-            }
-            return false;
-        }else {return true;}
-    }
-     private IEnumerator DelayFunction()
-    {
-        canExecute = false; // Sperrt die Funktion
-        yield return new WaitForSeconds(1f); // Warte eine Sekunde
-        canExecute = true; // Erlaubt die Funktion wieder
+        }
+        return true;
     }
 }
