@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class DragonShooting : MonoBehaviour
 {
@@ -11,11 +10,13 @@ public class DragonShooting : MonoBehaviour
     private float nextFireTime = 0f; // Tracks when the dragon can fire next
 
     private Transform player; // Reference to the player
+    private Player_FightMovement playerProperties; //actual player reference
 
     private void Start()
     {
         // Find the player by tag
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerProperties = player.GetComponent<Player_FightMovement>();
 
         if (player == null)
         {
@@ -33,36 +34,39 @@ public class DragonShooting : MonoBehaviour
         }
     }
 
-private void ShootAtPlayer()
-{
-    if (firePoint != null && fireballPrefab != null)
+    private void ShootAtPlayer()
     {
-        // Instantiate the fireball
-        GameObject fireball = Instantiate(fireballPrefab, firePoint.position, Quaternion.identity);
-
-        // Calculate direction towards the player
-        Vector2 direction = (player.position - firePoint.position).normalized;
-
-        // Set the fireball's velocity
-        Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        if (firePoint != null && fireballPrefab != null && playerProperties.currentHealth > 0)
         {
-            rb.linearVelocity = direction * fireballSpeed;
+            // Instantiate the fireball
+            GameObject fireball = Instantiate(fireballPrefab, firePoint.position, Quaternion.identity);
+
+            // Ignore collisions between the fireball and dragon
+            Collider2D fireballCollider = fireball.GetComponent<Collider2D>();
+            Collider2D dragonCollider = GetComponent<Collider2D>();
+            if (fireballCollider != null && dragonCollider != null)
+            {
+                Physics2D.IgnoreCollision(fireballCollider, dragonCollider, true);
+            }
+
+            // Calculate direction towards the player
+            Vector2 direction = (player.position - firePoint.position).normalized;
+
+            // Set the fireball's velocity
+            Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = direction * fireballSpeed;
+            }
+
+            // Rotate the fireball to face the player
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            fireball.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            // Flip the fireball horizontally (if it's pointing backwards)
+            fireball.transform.localScale = new Vector3(-1, 1, 1);  // Flip horizontally
+
+            Debug.Log("Dragon fired a fireball!");
         }
-
-        // Rotate the fireball to face the player
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Apply rotation and flip the fireball if needed
-        fireball.transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        // Flip the fireball horizontally (if it's pointing backwards)
-        
-        fireball.transform.localScale = new Vector3(-1, 1, 1);  // Flip horizontally
-
-        Debug.Log("Dragon fired a fireball!");
     }
-}
-
-
 }

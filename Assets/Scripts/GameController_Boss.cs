@@ -8,6 +8,7 @@ public class GameController_Boss : MonoBehaviour
     [SerializeField] GameObject dialogBoxLoose;
     [SerializeField] private Dragon[] dragons;
     [SerializeField] HealthBar healthBar;
+    [SerializeField] Player_FightMovement player;
 
     private void Update()
     {
@@ -27,7 +28,8 @@ public class GameController_Boss : MonoBehaviour
                 }
             }
 
-            if (healthBar.getHealth()==0) {
+            // Displays Dialog when player died
+            if (player.currentHealth <= 0) {
                 Time.timeScale = 0f;
                 dialogBoxLoose.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E)) {

@@ -5,23 +5,28 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-
     public Slider slider;
+    public int health;  // This will track the health
 
-    public float health;
-
-
-    public void SetMaxHealth(int health)
+    // Method to set max health and initialize the health bar
+    public void SetMaxHealth(int maxHealth)
     {
-        slider.maxValue = health;
-        slider.value = health;
+        slider.maxValue = maxHealth; // Set max value of slider
+        slider.value = maxHealth;    // Set current value of slider to maxHealth
+        health = maxHealth;          // Update internal health value to maxHealth
     }
-    public void setHealth(int health)
+
+    // Method to update the current health
+    public void setHealth(int currentHealth)
     {
-        slider.value =health;
-        this.health = slider.value;    
+        slider.value = currentHealth;  // Update the slider's value
+        health = currentHealth;        // Update the internal health value
+        Debug.Log("HealthBar updated: " + health);  // Log the updated health
     }
-    public float getHealth() {
-        return health;
+
+    // Method to get the current health
+    public int getHealth()
+    {
+        return health;  // Return the current health
     }
 }

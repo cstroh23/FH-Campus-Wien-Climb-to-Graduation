@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Player_FightMovement : MonoBehaviour
@@ -9,7 +10,7 @@ public class Player_FightMovement : MonoBehaviour
     private float inputX;
 
     public int maxHealth = 100;      // Max health of the player
-    private int currentHealth;      // Current health of the player
+    public int currentHealth;      // Current health of the player
 
     public HealthBar healthBar;     // Reference to the health bar
 
@@ -29,6 +30,7 @@ public class Player_FightMovement : MonoBehaviour
         // Initialize health
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth); // Set the health bar's max value
+        healthBar.setHealth(maxHealth); //Set currentHealth
     }
 
     private void Update()
@@ -78,6 +80,7 @@ public class Player_FightMovement : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player has died!");
+        //SceneManager.LoadScene("HomeScene"); // Main Menu Szene laden
         // Add death logic (e.g., reload scene, show game over screen, etc.)
     }
 

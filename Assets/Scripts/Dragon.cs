@@ -13,7 +13,6 @@ public class Dragon : MonoBehaviour
 
     private Transform player; // Reference to the player's Transform
     private bool isShooting; // Prevents shooting while already shooting
-    private float nextFireTime = 0f; // Time tracking for fire rate
 
     private void Start()
     {
@@ -33,50 +32,6 @@ public class Dragon : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        // Shoot at the player periodically
-        if (Time.time >= nextFireTime && !isShooting && player != null)
-        {
-            StartCoroutine(ShootAtPlayer());
-            nextFireTime = Time.time + fireRate; // Update fire timer
-        }
-    }
-
-    private IEnumerator ShootAtPlayer()
-    {
-        isShooting = true;
-
-        // Get a bullet from the pool
-        GameObject bullet = bulletPool.GetBullet();
-        if (bullet != null && firePoint != null)
-        {
-            // Set bullet's position and direction
-            bullet.transform.position = firePoint.position;
-            bullet.transform.rotation = Quaternion.identity;
-
-            // Calculate direction towards the player
-            Vector2 direction = (player.position - firePoint.position).normalized;
-
-            // Apply velocity to the bullet
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.linearVelocity = direction * 5f; // Adjust bullet speed as needed
-            }
-
-            Debug.Log("Dragon fired a bullet!");
-        }
-        else
-        {
-            Debug.LogError("Bullet or FirePoint is missing!");
-        }
-
-        // Wait briefly to simulate a shooting animation if needed
-        yield return new WaitForSeconds(0.2f);
-
-        isShooting = false;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

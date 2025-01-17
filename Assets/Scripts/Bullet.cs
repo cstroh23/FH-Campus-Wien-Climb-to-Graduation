@@ -9,6 +9,20 @@ public class Bullet : MonoBehaviour
     {
         // Starte die Lebensdauer der Bullet
         Invoke(nameof(Deactivate), lifetime);
+
+        // Ignore collision between the bullet and the player
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Collider2D bulletCollider = GetComponent<Collider2D>();
+            Collider2D playerCollider = player.GetComponent<Collider2D>();
+
+            // Ignore collision between the bullet and the player
+            if (bulletCollider != null && playerCollider != null)
+            {
+                Physics2D.IgnoreCollision(bulletCollider, playerCollider, true);
+            }
+        }
     }
 
     private void Update()
@@ -27,5 +41,13 @@ public class Bullet : MonoBehaviour
     {
         // Lösche den Deaktivierungsaufruf, um Konflikte zu vermeiden
         CancelInvoke();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Bullet collided with: " + collision.gameObject.name); // Log the collision
+
+        // Destroy the bullet when it hits anything (if you want this)
+        Destroy(gameObject);
     }
 }
