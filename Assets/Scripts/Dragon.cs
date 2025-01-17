@@ -16,6 +16,8 @@ public class Dragon : MonoBehaviour
 
     private void Start()
     {
+        hitCounter=0;
+
         // Find the player in the scene
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
