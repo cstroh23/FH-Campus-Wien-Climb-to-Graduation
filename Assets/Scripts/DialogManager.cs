@@ -46,7 +46,24 @@ public class DialogManager : MonoBehaviour {
                 currentLine = 0;
                 OnHideDialog?.Invoke();
                 if (boss) {
-                    SceneManager.LoadScene("BossFightScene");
+                    if (SceneManager.GetActiveScene().name == "Semester1Scene") {
+                        SceneManager.LoadScene("BossFightScene");
+                    }
+                    if (SceneManager.GetActiveScene().name == "Semester2Scene") {
+                        SceneManager.LoadScene("BossFight2Scene");
+                    }
+                    if (SceneManager.GetActiveScene().name == "Semester3Scene") {
+                        SceneManager.LoadScene("BossFight3Scene");
+                    }
+                    if (SceneManager.GetActiveScene().name == "Semester4Scene") {
+                        SceneManager.LoadScene("BossFight4Scene");
+                    }
+                    if (SceneManager.GetActiveScene().name == "Semester5Scene") {
+                        SceneManager.LoadScene("BossFight5Scene");
+                    }
+                    if (SceneManager.GetActiveScene().name == "Semester6Scene") {
+                        SceneManager.LoadScene("BossFight6Scene");
+                    }
                 }
              } 
         }
