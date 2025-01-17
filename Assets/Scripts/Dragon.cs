@@ -93,13 +93,10 @@ public class Dragon : MonoBehaviour
 
             // Increment the hit counter
             hitCounter++;
-
-            // Check if the hit counter has reached 7
-            if (hitCounter >= 7)
-            {
-                Debug.Log("Hit counter reached 7! Loading HomeScene...");
-                SceneManager.LoadScene(homeSceneName);
-            }
         }
+    }
+    public int getHitCounter() {
+        //Debug.Log("The current hitCounter: " + hitCounter);
+        return hitCounter;
     }
 }

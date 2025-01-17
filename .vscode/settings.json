@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "FH-Campus-Wien-Climb-to-Graduation.sln"
+    "dotnet.defaultSolution": "FH Campus Wien Climb to Graduation Game.sln"
 }
