@@ -335,7 +335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d5173e5e25ce1409e984c8db46bf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 420126332}
+  playerController1: {fileID: 420126332}
+  playerController2: {fileID: 1655861253}
+  playerController3: {fileID: 1401793328}
   player1: {fileID: 420126329}
   player2: {fileID: 1655861250}
   player3: {fileID: 1401793325}
@@ -527,6 +529,7 @@ MonoBehaviour:
     - Then you have to beat me in a Fight!
     - '[Press Enter to continue ...]'
   boss: 1
+  miniBoss: 0
 --- !u!50 &231715524
 Rigidbody2D:
   serializedVersion: 5

@@ -4,6 +4,47 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
+    public static bool player1;
+    public static bool player2;
+    public static bool player3;
+
+    private void Awake() {
+        if (!PlayerPrefs.HasKey("GameStarted")) {
+            SetPlayer1();
+            PlayerPrefs.SetInt("GameStarted", 1);
+        }
+    }
+
+    public void SetPlayer1() {
+        player1 = true;
+        player2 = false;
+        player3 = false;
+    }
+
+    public void SetPlayer2() {
+        player1 = false;
+        player2 = true;
+        player3 = false;
+    }
+
+    public void SetPlayer3() {
+        player1 = false;
+        player2 = false;
+        player3 = true;
+    }
+
+    public bool GetPlayer1() {
+        return player1;
+    }
+
+    public bool GetPlayer2() {
+        return player2;
+    }
+
+    public bool GetPlayer3() {
+        return player3;
+    }
+
     public void PlayGameSemester1() {
         SceneManager.LoadScene("Semester1Scene");
     }
@@ -48,5 +89,7 @@ public class MainMenu : MonoBehaviour {
     public void GoToChapter3Menu() {
         SceneManager.LoadScene("Chapter3Scene");
     }
-    
+    public void GoToSkinEditor() {
+        SceneManager.LoadScene("EditorScene");
+    }  
 }
