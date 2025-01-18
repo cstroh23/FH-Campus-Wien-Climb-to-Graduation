@@ -43,9 +43,11 @@ public class GameController : MonoBehaviour
     }
 
     private void SetActivePlayer() {
-        player1.SetActive(MainMenu.player1);
-        player2.SetActive(MainMenu.player2);
-        player3.SetActive(MainMenu.player3);
-    }
+    int selectedPlayer = PlayerPrefs.GetInt("SelectedPlayer", 1); // Falls nichts gespeichert wurde, Standard = 1
+
+    player1.SetActive(selectedPlayer == 1);
+    player2.SetActive(selectedPlayer == 2);
+    player3.SetActive(selectedPlayer == 3);
+}
 
 }

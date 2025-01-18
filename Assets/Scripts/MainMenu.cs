@@ -8,43 +8,43 @@ public class MainMenu : MonoBehaviour {
     public static bool player2;
     public static bool player3;
 
-    private void Awake() {
-        if (!PlayerPrefs.HasKey("GameStarted")) {
-            SetPlayer1();
-            PlayerPrefs.SetInt("GameStarted", 1);
-        }
-    }
-
     public void SetPlayer1() {
-        player1 = true;
-        player2 = false;
-        player3 = false;
-    }
+    PlayerPrefs.SetInt("SelectedPlayer", 1);
+    PlayerPrefs.Save();
+    Debug.Log("Player 1 ausgewählt.");
+    player1=true;
+    player2=false;
+    player3=false;
+}
 
-    public void SetPlayer2() {
-        player1 = false;
-        player2 = true;
-        player3 = false;
-    }
+public void SetPlayer2() {
+    PlayerPrefs.SetInt("SelectedPlayer", 2);
+    PlayerPrefs.Save();
+    Debug.Log("Player 2 ausgewählt.");
+    player1=false;
+    player2=true;
+    player3=false;
+}
 
-    public void SetPlayer3() {
-        player1 = false;
-        player2 = false;
-        player3 = true;
-    }
+public void SetPlayer3() {
+    PlayerPrefs.SetInt("SelectedPlayer", 3);
+    PlayerPrefs.Save();
+    Debug.Log("Player 3 ausgewählt.");
+    player1=false;
+    player2=false;
+    player3=true;
+}
 
-    public bool GetPlayer1() {
-        return player1;
+private void Start() {
+    if (!PlayerPrefs.HasKey("SelectedPlayer")) {
+        Debug.Log("Kein Spieler ausgewählt, setze Standard: Player 1");
+        PlayerPrefs.SetInt("SelectedPlayer", 1);
+        PlayerPrefs.Save();
+        player1=true;
+        player2=false;
+        player3=false;
     }
-
-    public bool GetPlayer2() {
-        return player2;
-    }
-
-    public bool GetPlayer3() {
-        return player3;
-    }
-
+}
     public void PlayGameSemester1() {
         SceneManager.LoadScene("Semester1Scene");
     }
