@@ -29,6 +29,36 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossFightScene.unity
     guid: f563f6cfc83ec80438cda37ec0c38bb7
+  - enabled: 1
+    path: Assets/Scenes/BossFight2Scene.unity
+    guid: d7b2504f9a6ff7c41a58ced6eed4247c
+  - enabled: 1
+    path: Assets/Scenes/BossFight3Scene.unity
+    guid: d912c726148ee76478d516f91ed73aab
+  - enabled: 1
+    path: Assets/Scenes/BossFight4Scene.unity
+    guid: 4ab1516334e397c4d97c41f613063a6b
+  - enabled: 1
+    path: Assets/Scenes/BossFight5Scene.unity
+    guid: 505e5a65f26701b4fa971dcd3987200f
+  - enabled: 1
+    path: Assets/Scenes/BossFight6Scene.unity
+    guid: 179f1e6d9272f934b9f20efdb8be295e
+  - enabled: 1
+    path: Assets/Scenes/Semester2Scene.unity
+    guid: 4570c53c74e2c8f45b91fc84b353a82b
+  - enabled: 1
+    path: Assets/Scenes/Semester3Scene.unity
+    guid: 6ccb7e8b6b21de64fbdac99f9a4a3ea5
+  - enabled: 1
+    path: Assets/Scenes/Semester4Scene.unity
+    guid: 75635be18dddf0b40bebdf655704c76f
+  - enabled: 1
+    path: Assets/Scenes/Semester5Scene.unity
+    guid: 797ead951d7829b4e95b3f30ddae0526
+  - enabled: 1
+    path: Assets/Scenes/Semester6Scene.unity
+    guid: 9652eee25e9ada34c94e55c848842375
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
