@@ -26,11 +26,13 @@ public class DialogManager : MonoBehaviour {
     int currentLine = 0;
     bool isTyping;
     bool boss;
+    bool miniBoss;
 
-    public IEnumerator ShowDialog(Dialog dialog, bool boss) {
+    public IEnumerator ShowDialog(Dialog dialog, bool boss, bool miniBoss) {
         yield return new WaitForEndOfFrame();
         OnShowDialog?.Invoke();
         this.boss = boss;
+        this.miniBoss = miniBoss;
         this.dialog = dialog;
         dialogBox.SetActive(true);
         StartCoroutine(TypeDialog(dialog.Lines[0]));
@@ -63,6 +65,14 @@ public class DialogManager : MonoBehaviour {
                     }
                     if (SceneManager.GetActiveScene().name == "Semester6Scene") {
                         SceneManager.LoadScene("BossFight6Scene");
+                    }
+                }
+                if (miniBoss) {
+                    if (SceneManager.GetActiveScene().name == "Semester5Scene") {
+                        SceneManager.LoadScene("MiniBossFight5Scene");
+                    }
+                    if (SceneManager.GetActiveScene().name == "Semester6Scene") {
+                        SceneManager.LoadScene("MiniBossFight6Scene");
                     }
                 }
              } 

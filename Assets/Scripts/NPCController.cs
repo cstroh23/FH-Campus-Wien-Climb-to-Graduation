@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement; // For scene management
 using System.Collections; // Required for IEnumerator
 
-
 public class NPCController : MonoBehaviour, Interactable
 {
     public float moveSpeed = 2f;
@@ -13,41 +12,50 @@ public class NPCController : MonoBehaviour, Interactable
 
     [SerializeField] Dialog dialog;
     [SerializeField] bool boss;
+    [SerializeField] bool miniBoss;
 
     public void Interact() {
         Debug.Log("Is NPC Boss: " + boss);
         if (Input.GetKeyUp(KeyCode.E)) {
-            if (!boss) {
-                StartCoroutine(DialogManager.Instance.ShowDialog(dialog, boss));
-            } else if (boss){
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialog, boss));
-            }
+            StartCoroutine(DialogManager.Instance.ShowDialog(dialog, boss, miniBoss));
         }
     }
+
     private void Awake()
     {
-        if (!boss) return;
+        if (!boss && !miniBoss) return;
         animator = GetComponent<Animator>();
     }
+
     private void Start()
     {
-        if (!boss) return;
-        directions[0] = Vector3.up;
-        directions[1] = Vector3.left;
-        directions[2] = Vector3.down;
-        directions[3] = Vector3.right;
+        if (boss)
+        {
+            directions[0] = Vector3.up;
+            directions[1] = Vector3.left;
+            directions[2] = Vector3.down;
+            directions[3] = Vector3.right;
+        }
+        else if (miniBoss)
+        {
+            directions[0] = Vector3.left;
+            directions[1] = Vector3.right;
+        }
 
-        StartCoroutine(MoveEnemy());
+        if (boss || miniBoss)
+            StartCoroutine(MoveEnemy());
     }
 
     private IEnumerator MoveEnemy()
     {
-        if (!boss) yield break;
+        if (!boss && !miniBoss) yield break;
+
         while (true)
         {
-            if (Time.timeScale == 0f) yield return null; // Bewegung pausieren
+            if (Time.timeScale == 0f) yield return null; // Pause movement
+
             animator.SetFloat("moveX", directions[currentDirection].x);
-            animator.SetFloat("moveY", directions[currentDirection].y);
+            animator.SetFloat("moveY", miniBoss ? 0 : directions[currentDirection].y);
             animator.SetBool("isMoving", true);
 
             Vector3 targetPos = transform.position + directions[currentDirection];
