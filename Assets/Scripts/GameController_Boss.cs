@@ -243,4 +243,12 @@ public class GameController_Boss : MonoBehaviour
             }
         }
     }
+    private void OnApplicationQuit()
+    {
+        if (PlayerPrefs.HasKey("SelectedPlayer"))
+        {
+            PlayerPrefs.DeleteKey("SelectedPlayer"); // Löscht nur "SelectedPlayer"
+            PlayerPrefs.Save(); // Speichert die Änderungen sofort
+        }
+    }
 }

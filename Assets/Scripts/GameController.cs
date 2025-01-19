@@ -49,5 +49,13 @@ public class GameController : MonoBehaviour
     player2.SetActive(selectedPlayer == 2);
     player3.SetActive(selectedPlayer == 3);
 }
+    private void OnApplicationQuit()
+        {
+            if (PlayerPrefs.HasKey("SelectedPlayer"))
+            {
+                PlayerPrefs.DeleteKey("SelectedPlayer"); // Löscht nur "SelectedPlayer"
+                PlayerPrefs.Save(); // Speichert die Änderungen sofort
+            }
+        }
 
 }

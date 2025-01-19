@@ -4,12 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
-    public static bool player1;
-    public static bool player2;
-    public static bool player3;
+    public static bool player1 = true;
+    public static bool player2 = false;
+    public static bool player3 = false;
     [SerializeField] GameObject dialog1;
     [SerializeField] GameObject dialog2;
     [SerializeField] ECTSScoreManager ects;
+    [SerializeField] DifficutlyManager difficutlyManager;
+
+    public void SetDifficultyEasy() {
+        difficutlyManager.SetDifficulty(1);
+    }
+    public void SetDifficultyMedium() {
+        difficutlyManager.SetDifficulty(2);
+    }
+    public void SetDifficultyHard() {
+        difficutlyManager.SetDifficulty(3);
+    }
 
     public void SetPlayer1() {
     PlayerPrefs.SetInt("SelectedPlayer", 1);
@@ -39,11 +50,7 @@ public void SetPlayer3() {
 }
 
 private void Start() {
-    if (PlayerPrefs.HasKey("SelectedPlayer"))
-    {
-        PlayerPrefs.DeleteKey("SelectedPlayer"); // Löscht nur "SelectedPlayer"
-        PlayerPrefs.Save(); // Speichert die Änderungen sofort
-    }else if (!PlayerPrefs.HasKey("SelectedPlayer")) {
+    if (!PlayerPrefs.HasKey("SelectedPlayer")) {
         Debug.Log("Kein Spieler ausgewählt, setze Standard: Player 1");
         PlayerPrefs.SetInt("SelectedPlayer", 1);
         PlayerPrefs.Save();
@@ -100,6 +107,7 @@ private void Start() {
     }
 
     public void QuitGame() {
+        UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
@@ -133,5 +141,13 @@ private void Start() {
             dialog1.SetActive(false);
             dialog2.SetActive(false);
         }
-    }  
+    }
+    private void OnApplicationQuit()
+    {
+        if (PlayerPrefs.HasKey("SelectedPlayer"))
+        {
+            PlayerPrefs.DeleteKey("SelectedPlayer"); // Löscht nur "SelectedPlayer"
+            PlayerPrefs.Save(); // Speichert die Änderungen sofort
+        }
+    } 
 }

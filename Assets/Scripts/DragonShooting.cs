@@ -11,12 +11,24 @@ public class DragonShooting : MonoBehaviour
 
     private Transform player; // Reference to the player
     private Player_FightMovement playerProperties; //actual player reference
+    [SerializeField] DifficutlyManager difficutlyManager;
 
     private void Start()
     {
         // Find the player by tag
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerProperties = player.GetComponent<Player_FightMovement>();
+
+        if (difficutlyManager.GetDifficulty()==1) {
+            fireRate=3f;
+            fireballSpeed=5f;
+        } else if (difficutlyManager.GetDifficulty()==2) {
+            fireRate=2f;
+            fireballSpeed=7f;
+        } else if (difficutlyManager.GetDifficulty()==3) {
+            fireRate=1.5f;
+            fireballSpeed=10f;
+        }
 
         if (player == null)
         {
