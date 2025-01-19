@@ -36,7 +36,11 @@ public void SetPlayer3() {
 }
 
 private void Start() {
-    if (!PlayerPrefs.HasKey("SelectedPlayer")) {
+    if (PlayerPrefs.HasKey("SelectedPlayer"))
+    {
+        PlayerPrefs.DeleteKey("SelectedPlayer"); // Löscht nur "SelectedPlayer"
+        PlayerPrefs.Save(); // Speichert die Änderungen sofort
+    }else if (!PlayerPrefs.HasKey("SelectedPlayer")) {
         Debug.Log("Kein Spieler ausgewählt, setze Standard: Player 1");
         PlayerPrefs.SetInt("SelectedPlayer", 1);
         PlayerPrefs.Save();
