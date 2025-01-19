@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player_FightMovement : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class Player_FightMovement : MonoBehaviour
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;  // Für visuelles Feedback
+    [SerializeField] GameObject chatpt;
+    [SerializeField] GameObject lockin;
 
     private bool isInvincible = false;  // Ob der Spieler unverwundbar ist
     private bool canUseShieldAbility = true;  // Ob die Schutzfähigkeit verfügbar ist
@@ -142,6 +145,7 @@ public class Player_FightMovement : MonoBehaviour
     {
         isInvincible = true;   // Spieler unverwundbar machen
         canUseShieldAbility = false; // Fähigkeit auf Cooldown setzen
+        chatpt.SetActive(false);
         Debug.Log("Unverwundbarkeit aktiviert!");
 
         // Visuelles Feedback: Blinken
@@ -157,6 +161,7 @@ public class Player_FightMovement : MonoBehaviour
 
         yield return new WaitForSeconds(5f); // Weitere 5 Sekunden warten (insgesamt 10s Cooldown)
         canUseShieldAbility = true;
+        chatpt.SetActive(true);
         Debug.Log("Schutzfähigkeit wieder einsatzbereit!");
     }
 
@@ -166,6 +171,7 @@ public class Player_FightMovement : MonoBehaviour
         isSpeedBoosted = true;   // Geschwindigkeit erhöhen
         moveSpeed *= 2;          // Verdoppeln der Geschwindigkeit
         canUseSpeedAbility = false; // Fähigkeit auf Cooldown setzen
+        lockin.SetActive(false);
         Debug.Log("Geschwindigkeitsboost aktiviert!");
 
         yield return new WaitForSeconds(5f); // 5 Sekunden lang boosten
@@ -176,6 +182,7 @@ public class Player_FightMovement : MonoBehaviour
 
         yield return new WaitForSeconds(5f); // Weitere 5 Sekunden warten (insgesamt 10s Cooldown)
         canUseSpeedAbility = true;
+        lockin.SetActive(true);
         Debug.Log("Geschwindigkeitsfähigkeit wieder einsatzbereit!");
     }
 }
