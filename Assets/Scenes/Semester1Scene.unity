@@ -525,8 +525,9 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - You want to pass this semester?
-    - Then you have to beat me in a Fight!
+    - Hello ******. You are just on time.
+    - It's time to take the theoretical exam.
+    - You need atleast 60% to pass the exam.
     - '[Press Enter to continue ...]'
   boss: 1
   miniBoss: 0
@@ -2142,6 +2143,23 @@ PrefabInstance:
     - target: {fileID: 5725948367729645371, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
       propertyPath: m_Name
       value: NPC1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621475191199873874, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
+      propertyPath: 'dialog.lines.Array.data[0]'
+      value: Hey! You must be new here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621475191199873874, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
+      propertyPath: 'dialog.lines.Array.data[1]'
+      value: The building is currently being renovated in some parts. But I hope
+        you still like it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621475191199873874, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
+      propertyPath: 'dialog.lines.Array.data[2]'
+      value: The teacher is waiting on you. Take a right and head straight.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621475191199873874, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
+      propertyPath: 'dialog.lines.Array.data[3]'
+      value: Good luck!
       objectReference: {fileID: 0}
     - target: {fileID: 9069876715844090154, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22846,18 +22864,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'So this is the beginning of you first chapter - the first semester....
+  m_Text: 'Congratulations on the entrance exam! Your life as a student has just
+    began.
 
-    You
-    will have to face the daily life of a student....
+    Your first day starts off with another exam :)
 
-    But this story will be
-    a little bit more diffrent than you think....
+    You can take
+    a look around, but the teacher is waiting on you.
 
-    Let''s start the story....
-
-    [Press
-    E to continue]'
+    [Press E to continue...]'
 --- !u!222 &1849685518
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26566,6 +26581,22 @@ PrefabInstance:
     - target: {fileID: 5725948367729645371, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
       propertyPath: m_Name
       value: NPC1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621475191199873874, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621475191199873874, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
+      propertyPath: 'dialog.lines.Array.data[0]'
+      value: You're a first semester guy right?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621475191199873874, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
+      propertyPath: 'dialog.lines.Array.data[1]'
+      value: Don't take things lightly, you have a lot to come.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621475191199873874, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
+      propertyPath: 'dialog.lines.Array.data[2]'
+      value: I can help you, meet me in the second semester.
       objectReference: {fileID: 0}
     - target: {fileID: 9069876715844090154, guid: fafa7475d2f5b664d80850f736ad90e2, type: 3}
       propertyPath: m_LocalPosition.x

@@ -53801,14 +53801,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You have managed to beat the boss in the first semster
-
-    Congratulation
+  m_Text: 'Congratulations, you''ve passed the exam with almost a 100%.
 
     Now
-    you can move on to Semester 2
+    you can move on to Semester 3. Your ECTS are registered in our system.
 
-    [Press E to continue]'
+    [Press
+    E to continue]'
 --- !u!222 &502164154
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -55927,12 +55926,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You have Lost the BossFight
+  m_Text: 'Oh no! You passed the content of one teacher, but you failed the content
+    of the other teacher.
 
-    Try the semsester again
+    Sorry, you''ll have to retry the semester.
 
-    [Press E
-    to continue]'
+    [Press
+    E to continue]'
 --- !u!222 &1244819639
 CanvasRenderer:
   m_ObjectHideFlags: 0

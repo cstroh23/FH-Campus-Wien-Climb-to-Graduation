@@ -154,10 +154,10 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - We're in the second semester and already 50% of our students have failed!
+    - Crazy right ? We were 112 Students and now 56 only.
+    - Who knows how many will stay until the last semester.
+    - We'll see...
   boss: 0
   miniBoss: 0
 --- !u!60 &15092371
@@ -382,18 +382,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'So this is the beginning of you first chapter - the first semester....
-
-    You
-    will have to face the daily life of a student....
-
-    But this story will be
-    a little bit more diffrent than you think....
-
-    Let''s start the story....
+  m_Text: 'Well done on your exam! Now that you are in the second Semester you got
+    some more free time to spare. However, there is another exam waiting on you.
+    Try to make some new friends and when you''re ready, take the exam.
 
     [Press
-    E to continue]'
+    E to continue...]'
 --- !u!222 &16210039
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -808,8 +802,9 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - You want to pass this semester?
-    - Then you have to beat me in a Fight!
+    - Hello ******. The exam is starting now.
+    - The exam consists of the contents of two teachers.
+    - 70% of the content is from one teacher, and 30% from the other. Good luck!
     - '[Press Enter to continue ...]'
   boss: 1
   miniBoss: 0
@@ -930,10 +925,12 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - Have you heard of this AI called ChatGPT?
+    - Yeah I did, what's up with that ?
+    - 'It''s rumored that everybody is using it to advance in their colleague. '
+    - How come ?
+    - Apperantly it codes for you and tells you everything!
+    - Wait really ? I should check that out!
   boss: 0
   miniBoss: 0
 --- !u!60 &346486566
@@ -1123,10 +1120,13 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - Heyy you made it! Welcome to the second semester!
+    - Remember me ? I am the guy from the first semester you talked to.
+    - Listen, it's not getting any easier, but I'll give you a strong tip for future
+      exams.
+    - If you press C while in the exam, you can cheat without being noticed ;)
+    - Use it wisely though, you can't do that all the time.
+    - Good luck, and maybe we see each other again ;P
   boss: 0
   miniBoss: 0
 --- !u!60 &353133911
@@ -1509,10 +1509,8 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - Man... how am I supposed to learn for an exam, and two days later take another
+      exam....
   boss: 0
   miniBoss: 0
 --- !u!60 &399046285
@@ -2183,10 +2181,12 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - Have you heard of this AI called ChatGPT?
+    - Yeah I did, what's up with that ?
+    - It's rumored that everybody is using it to advance in their colleague.
+    - How come ?
+    - Apperantly it codes for you and tells you everything!
+    - Wait really ?I should check that out!
   boss: 0
   miniBoss: 0
 --- !u!60 &434829162
@@ -2376,10 +2376,7 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - Oh sorry! I didn't mean to get in your way.
   boss: 0
   miniBoss: 0
 --- !u!60 &437022624
@@ -2569,10 +2566,7 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - Oh hey. If you're looking for the teacher you're going in the wrong direction...
   boss: 0
   miniBoss: 0
 --- !u!60 &440998034
@@ -3032,10 +3026,7 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - I've heard the last semester is going to be rough.
   boss: 0
   miniBoss: 0
 --- !u!60 &582247405
@@ -24423,10 +24414,8 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - You see those spikes ?
+    - You might wanna stay away from them.
   boss: 0
   miniBoss: 0
 --- !u!60 &949918399
@@ -24700,10 +24689,8 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - Hello.
+    - You are on the right track, the teacher is further down the corridor.
   boss: 0
   miniBoss: 0
 --- !u!60 &1182853374
@@ -25369,10 +25356,10 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - We're in the second semester and already 50% of our students have failed!
+    - Crazy right ? We were 112 Students and now 56 only.
+    - Who knows how many will stay until the last semester.
+    - We'll see...
   boss: 0
   miniBoss: 0
 --- !u!60 &1531954223
@@ -25933,10 +25920,11 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - Bro I know a guy who has the exams for the third semester.
+    - Seriously ? How do you know about him ?
+    - It's an old friend we were in the same class, but I repeated the semester.
+      I can ask him for pictures.
+    - That would make things so easy! Please do that.
   boss: 0
   miniBoss: 0
 --- !u!60 &1840192179
@@ -26173,10 +26161,8 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - Does anybody even use the librabry in this colleague ?
+    - Atleast it's nothing in my interest.
   boss: 0
   miniBoss: 0
 --- !u!60 &1871624060
@@ -26366,10 +26352,11 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - Bro I know a guy who has the exams for the third semester.
+    - Seriously ? How do you know about him ?
+    - It's an old friend we were in the same class, but I repeated the semester.
+      I can ask him for pictures.
+    - That would make things so easy! Please do that.
   boss: 0
   miniBoss: 0
 --- !u!60 &1874468815
@@ -32266,10 +32253,8 @@ MonoBehaviour:
   moveSpeed: 2
   dialog:
     lines:
-    - Hello my friend
-    - My Name is Steini
-    - Welcome to the univesity
-    - Have a nice day
+    - I have an exam tomorrow, but I am too scared.
+    - I think I'll call in sick tomorrow.
   boss: 0
   miniBoss: 0
 --- !u!1 &2121092602
