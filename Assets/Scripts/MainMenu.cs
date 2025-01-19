@@ -119,6 +119,15 @@ private void Start() {
     public void GoToSkinEditor() {
         SceneManager.LoadScene("EditorScene");
     }
+    public void GoToTippsScene() {
+        SceneManager.LoadScene("TippsScene");
+    }
+    public void OpenLevelTipps() {
+        dialog1.SetActive(true);
+    }
+    public void OpenBossTipps() {
+        dialog2.SetActive(true);
+    }
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
             dialog1.SetActive(false);
