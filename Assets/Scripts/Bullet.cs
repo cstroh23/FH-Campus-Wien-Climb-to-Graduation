@@ -4,11 +4,23 @@ public class Bullet : MonoBehaviour
 {
     public float bulletSpeed = 10f; // Geschwindigkeit der Bullet
     public float lifetime = 2f;    // Lebensdauer der Bullet
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackSound;
 
     private void OnEnable()
     {
         // Starte die Lebensdauer der Bullet
         Invoke(nameof(Deactivate), lifetime);
+
+        if (attackSound != null && audioSource != null)
+        {
+            Debug.Log("Trying to play audio");
+            audioSource.PlayOneShot(attackSound);
+        }
+        else
+        {
+            Debug.Log("Audio could not be played");
+        }
 
         // Ignore collision between the bullet and the player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
