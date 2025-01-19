@@ -4,7 +4,7 @@ using TMPro; // For TextMeshPro
 public class ECTSScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText; // Reference to the TextMeshPro component
-    private static int score = 180; // Statische Variable für Szenenübergreifenden Score
+    private static int score = 0; // Statische Variable für Szenenübergreifenden Score
 
     void Start()
     {
