@@ -22,7 +22,9 @@ public class GameController_Boss : MonoBehaviour
                     dialogBoxWin.SetActive(true);
                     Debug.Log("Hit counter reached 7! Loading HomeScene...");
                     if (Input.GetKeyDown(KeyCode.E)) {
-                        ects.AddScore(30);
+                        if (ects.GetScore()<30) {
+                            ects.AddScore(30);
+                        }
                         dialogBoxWin.SetActive(false);
                         SceneManager.LoadScene("HomeScene");
                         Time.timeScale = 1f;
@@ -52,7 +54,9 @@ public class GameController_Boss : MonoBehaviour
                     dialogBoxWin.SetActive(true);
                     Debug.Log("Hit counter reached 7! Loading HomeScene...");
                     if (Input.GetKeyDown(KeyCode.E)) {
-                        ects.AddScore(30);
+                        if (ects.GetScore()<60) {
+                            ects.AddScore(30);
+                        }
                         dialogBoxWin.SetActive(false);
                         SceneManager.LoadScene("HomeScene");
                         Time.timeScale = 1f;
@@ -81,7 +85,9 @@ public class GameController_Boss : MonoBehaviour
                     dialogBoxWin.SetActive(true);
                     Debug.Log("Hit counter reached 7! Loading HomeScene...");
                     if (Input.GetKeyDown(KeyCode.E)) {
-                        ects.AddScore(30);
+                        if (ects.GetScore()<90) {
+                            ects.AddScore(30);
+                        }
                         dialogBoxWin.SetActive(false);
                         SceneManager.LoadScene("HomeScene");
                         Time.timeScale = 1f;
@@ -110,7 +116,9 @@ public class GameController_Boss : MonoBehaviour
                     dialogBoxWin.SetActive(true);
                     Debug.Log("Hit counter reached 7! Loading HomeScene...");
                     if (Input.GetKeyDown(KeyCode.E)) {
-                        ects.AddScore(30);
+                        if (ects.GetScore()<120) {
+                            ects.AddScore(30);
+                        }
                         dialogBoxWin.SetActive(false);
                         SceneManager.LoadScene("HomeScene");
                         Time.timeScale = 1f;
@@ -139,7 +147,9 @@ public class GameController_Boss : MonoBehaviour
                     dialogBoxWin.SetActive(true);
                     Debug.Log("Hit counter reached 7! Loading HomeScene...");
                     if (Input.GetKeyDown(KeyCode.E)) {
-                        ects.AddScore(30);
+                        if (ects.GetScore()<150) {
+                            ects.AddScore(30);
+                        }
                         dialogBoxWin.SetActive(false);
                         SceneManager.LoadScene("HomeScene");
                         Time.timeScale = 1f;
@@ -168,7 +178,9 @@ public class GameController_Boss : MonoBehaviour
                     dialogBoxWin.SetActive(true);
                     Debug.Log("Hit counter reached 7! Loading HomeScene...");
                     if (Input.GetKeyDown(KeyCode.E)) {
-                        ects.AddScore(30);
+                        if (ects.GetScore()<180) {
+                            ects.AddScore(30);
+                        }
                         dialogBoxWin.SetActive(false);
                         SceneManager.LoadScene("HomeScene");
                         Time.timeScale = 1f;
