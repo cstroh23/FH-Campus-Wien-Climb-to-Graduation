@@ -7,6 +7,9 @@ public class MainMenu : MonoBehaviour {
     public static bool player1;
     public static bool player2;
     public static bool player3;
+    [SerializeField] GameObject dialog1;
+    [SerializeField] GameObject dialog2;
+    [SerializeField] ECTSScoreManager ects;
 
     public void SetPlayer1() {
     PlayerPrefs.SetInt("SelectedPlayer", 1);
@@ -53,19 +56,39 @@ private void Start() {
         SceneManager.LoadScene("Semester1Scene");
     }
     public void PlayGameSemester2() {
-        SceneManager.LoadScene("Semester2Scene");
+        if (ects.GetScore()>=30) {
+            SceneManager.LoadScene("Semester2Scene");
+        } else {
+            dialog2.SetActive(true);
+        }
     }
     public void PlayGameSemester3() {
-        SceneManager.LoadScene("Semester3Scene");
+        if (ects.GetScore()>=60) {
+            SceneManager.LoadScene("Semester3Scene");
+        } else {
+            dialog1.SetActive(true);
+        }
     }
     public void PlayGameSemester4() {
-        SceneManager.LoadScene("Semester4Scene");
+        if (ects.GetScore()>=90) {
+            SceneManager.LoadScene("Semester4Scene");
+        } else {
+            dialog2.SetActive(true);
+        }
     }
     public void PlayGameSemester5() {
-        SceneManager.LoadScene("Semester5Scene");
+        if (ects.GetScore()>=120) {
+            SceneManager.LoadScene("Semester5Scene");
+        } else {
+            dialog1.SetActive(true);
+        }
     }
     public void PlayGameSemester6() {
-        SceneManager.LoadScene("Semester6Scene");
+        if (ects.GetScore()>=150) {
+            SceneManager.LoadScene("Semester6Scene");
+        } else {
+            dialog2.SetActive(true);
+        }
     }
 
     public void GoToSettingsMenu() {
@@ -95,5 +118,11 @@ private void Start() {
     }
     public void GoToSkinEditor() {
         SceneManager.LoadScene("EditorScene");
+    }
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.E)) {
+            dialog1.SetActive(false);
+            dialog2.SetActive(false);
+        }
     }  
 }
