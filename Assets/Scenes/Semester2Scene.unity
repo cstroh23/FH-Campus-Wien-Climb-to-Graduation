@@ -159,6 +159,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &15092371
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -527,7 +528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d5173e5e25ce1409e984c8db46bf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 420126332}
+  playerController1: {fileID: 0}
+  playerController2: {fileID: 0}
+  playerController3: {fileID: 0}
   player1: {fileID: 420126329}
   player2: {fileID: 1655861250}
   player3: {fileID: 1401793325}
@@ -719,6 +722,7 @@ MonoBehaviour:
     - Then you have to beat me in a Fight!
     - '[Press Enter to continue ...]'
   boss: 1
+  miniBoss: 0
 --- !u!50 &231715524
 Rigidbody2D:
   serializedVersion: 5
@@ -841,6 +845,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &346486566
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1033,6 +1038,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &353133911
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1225,6 +1231,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &368851391
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1417,6 +1424,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &399046285
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1565,6 +1573,331 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.19, y: -0.22, z: 0}
   m_LocalScale: {x: 1.044669, y: 1.044669, z: 1.044669}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &409450182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409450186}
+  - component: {fileID: 409450185}
+  - component: {fileID: 409450184}
+  - component: {fileID: 409450183}
+  m_Layer: 0
+  m_Name: MusicController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &409450183
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409450182}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 52359c331e3c6a647b133d8ba192e984, type: 3}
+  m_Resource: {fileID: 8300000, guid: 52359c331e3c6a647b133d8ba192e984, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &409450184
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409450182}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ea64bf1106ed8404b95ee476e4183259, type: 3}
+  m_Resource: {fileID: 8300000, guid: ea64bf1106ed8404b95ee476e4183259, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &409450185
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409450182}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6cf823160f529dc4681209105a332887, type: 3}
+  m_Resource: {fileID: 8300000, guid: 6cf823160f529dc4681209105a332887, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &409450186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409450182}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 532.92303, y: 249.68187, z: -3.3540945}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1765,6 +2098,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &434829162
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1957,6 +2291,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &437022624
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2149,6 +2484,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &440998034
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2611,6 +2947,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &582247405
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -22249,6 +22586,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &949918399
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -22525,6 +22863,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &1182853374
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -23193,6 +23532,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &1531954223
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -23832,6 +24172,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &1840192179
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -24161,6 +24502,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &1871624060
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -24353,6 +24695,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!60 &1874468815
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -30142,6 +30485,7 @@ MonoBehaviour:
     - Welcome to the univesity
     - Have a nice day
   boss: 0
+  miniBoss: 0
 --- !u!1 &2121092602
 GameObject:
   m_ObjectHideFlags: 0
@@ -30309,3 +30653,4 @@ SceneRoots:
   - {fileID: 949918402}
   - {fileID: 1182853377}
   - {fileID: 1871624063}
+  - {fileID: 409450186}

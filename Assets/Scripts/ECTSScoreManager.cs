@@ -17,6 +17,10 @@ public class ECTSScoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
+    public int GetScore() {
+        return score;
+    }
+
     private void UpdateScoreText()
     {
         scoreText.text = "ECTS: " + score; // UI aktualisieren

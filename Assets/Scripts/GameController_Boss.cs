@@ -61,7 +61,7 @@ public class GameController_Boss : MonoBehaviour
                 }
             }
 
-            if (healthBar.getHealth()==0) {
+            if (player.currentHealth <= 0) {
                 Time.timeScale = 0f;
                 dialogBoxLoose.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E)) {
@@ -90,7 +90,7 @@ public class GameController_Boss : MonoBehaviour
                 }
             }
 
-            if (healthBar.getHealth()==0) {
+            if (player.currentHealth <= 0) {
                 Time.timeScale = 0f;
                 dialogBoxLoose.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E)) {
@@ -119,7 +119,7 @@ public class GameController_Boss : MonoBehaviour
                 }
             }
 
-            if (healthBar.getHealth()==0) {
+            if (player.currentHealth <= 0) {
                 Time.timeScale = 0f;
                 dialogBoxLoose.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E)) {
@@ -148,7 +148,7 @@ public class GameController_Boss : MonoBehaviour
                 }
             }
 
-            if (healthBar.getHealth()==0) {
+            if (player.currentHealth <= 0) {
                 Time.timeScale = 0f;
                 dialogBoxLoose.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E)) {
@@ -177,7 +177,7 @@ public class GameController_Boss : MonoBehaviour
                 }
             }
 
-            if (healthBar.getHealth()==0) {
+            if (player.currentHealth <= 0) {
                 Time.timeScale = 0f;
                 dialogBoxLoose.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E)) {
