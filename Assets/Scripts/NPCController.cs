@@ -6,6 +6,7 @@ public class NPCController : MonoBehaviour, Interactable
 {
     public float moveSpeed = 2f;
     private Vector3[] directions = new Vector3[4];
+    private Vector3[] directionsMiniBoss = new Vector3[2];
     private int currentDirection = 0;
 
     private Animator animator;
@@ -38,8 +39,8 @@ public class NPCController : MonoBehaviour, Interactable
         }
         else if (miniBoss)
         {
-            directions[0] = Vector3.left;
-            directions[1] = Vector3.right;
+            directionsMiniBoss[0] = Vector3.left;
+            directionsMiniBoss[1] = Vector3.right;
         }
 
         if (boss || miniBoss)
@@ -54,26 +55,49 @@ public class NPCController : MonoBehaviour, Interactable
         {
             if (Time.timeScale == 0f) yield return null; // Pause movement
 
-            animator.SetFloat("moveX", directions[currentDirection].x);
-            animator.SetFloat("moveY", miniBoss ? 0 : directions[currentDirection].y);
-            animator.SetBool("isMoving", true);
+            if (boss) {
+                animator.SetFloat("moveX", directions[currentDirection].x);
+                animator.SetFloat("moveY", directions[currentDirection].y);
+                animator.SetBool("isMoving", true);
 
-            Vector3 targetPos = transform.position + directions[currentDirection];
+                Vector3 targetPos = transform.position + directions[currentDirection];
 
-            float elapsedTime = 0f;
-            Vector3 startPos = transform.position;
-            while (elapsedTime < 1f)
-            {
-                transform.position = Vector3.Lerp(startPos, targetPos, elapsedTime / 1f);
-                elapsedTime += Time.deltaTime;
-                yield return null;
+                float elapsedTime = 0f;
+                Vector3 startPos = transform.position;
+                while (elapsedTime < 1f)
+                {
+                    transform.position = Vector3.Lerp(startPos, targetPos, elapsedTime / 1f);
+                    elapsedTime += Time.deltaTime;
+                    yield return null;
+                }
+
+                transform.position = targetPos;
+                animator.SetBool("isMoving", false);
+
+                yield return new WaitForSeconds(1f);
+                currentDirection = (currentDirection + 1) % directions.Length;
             }
+            if (miniBoss) {
+                animator.SetFloat("moveX", directionsMiniBoss[currentDirection].x);
+                animator.SetBool("isMoving", true);
 
-            transform.position = targetPos;
-            animator.SetBool("isMoving", false);
+                Vector3 targetPos = transform.position + directionsMiniBoss[currentDirection];
 
-            yield return new WaitForSeconds(1f);
-            currentDirection = (currentDirection + 1) % directions.Length;
+                float elapsedTime = 0f;
+                Vector3 startPos = transform.position;
+                while (elapsedTime < 1f)
+                {
+                    transform.position = Vector3.Lerp(startPos, targetPos, elapsedTime / 1f);
+                    elapsedTime += Time.deltaTime;
+                    yield return null;
+                }
+
+                transform.position = targetPos;
+                animator.SetBool("isMoving", false);
+
+                yield return new WaitForSeconds(1f);
+                currentDirection = (currentDirection + 1) % directionsMiniBoss.Length;
+            }
         }
     }
 }
