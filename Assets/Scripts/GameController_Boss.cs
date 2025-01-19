@@ -153,6 +153,10 @@ public class GameController_Boss : MonoBehaviour
                         dialogBoxWin.SetActive(false);
                         SceneManager.LoadScene("HomeScene");
                         Time.timeScale = 1f;
+                        PlayerPrefs.DeleteKey("MiniBossDefeated");
+                        PlayerPrefs.DeleteKey("LastScene");
+                        PlayerPrefs.Save();
+                        Debug.Log("PlayerPrefs zurückgesetzt!");
                     }
                     break;
                 }
@@ -184,6 +188,10 @@ public class GameController_Boss : MonoBehaviour
                         dialogBoxWin.SetActive(false);
                         SceneManager.LoadScene("HomeScene");
                         Time.timeScale = 1f;
+                        PlayerPrefs.DeleteKey("MiniBossDefeated");
+                        PlayerPrefs.DeleteKey("LastScene");
+                        PlayerPrefs.Save();
+                        Debug.Log("PlayerPrefs zurückgesetzt!");
                     }
                     break;
                 }
@@ -195,6 +203,41 @@ public class GameController_Boss : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E)) {
                     dialogBoxLoose.SetActive(false);
                     SceneManager.LoadScene("HomeScene");
+                    Time.timeScale = 1f;
+                }
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "MiniBossFight5Scene" || SceneManager.GetActiveScene().name == "MiniBossFight6Scene") {
+            foreach (Dragon dragon in dragons) {
+                if (dragon.getHitCounter() >= 7) {
+                    Time.timeScale = 0f;
+                    dialogBoxWin.SetActive(true);
+                    Debug.Log("MiniBoss besiegt! Boss ist jetzt zugänglich!");
+
+                    if (Input.GetKeyDown(KeyCode.E)) {
+                        PlayerPrefs.SetInt("MiniBossDefeated", 1); // Speichert, dass der MiniBoss besiegt wurde
+                        PlayerPrefs.Save();
+
+                        dialogBoxWin.SetActive(false);
+                        if (SceneManager.GetActiveScene().name == "MiniBossFight5Scene") {
+                            SceneManager.LoadScene("Semester5Scene");
+                        }
+                        if (SceneManager.GetActiveScene().name == "MiniBossFight6Scene") {
+                            SceneManager.LoadScene("Semester6Scene");
+                        }
+                        Time.timeScale = 1f;
+                    }
+                    break;
+                }
+            }
+
+            if (player.currentHealth <= 0) {
+                Time.timeScale = 0f;
+                dialogBoxLoose.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    dialogBoxLoose.SetActive(false);
+                    string lastScene = PlayerPrefs.GetString("LastScene", "HomeScene");
+                    SceneManager.LoadScene(lastScene);
                     Time.timeScale = 1f;
                 }
             }

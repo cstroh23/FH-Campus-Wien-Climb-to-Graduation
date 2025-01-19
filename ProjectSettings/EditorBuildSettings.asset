@@ -62,6 +62,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Semester6Scene.unity
     guid: 9652eee25e9ada34c94e55c848842375
+  - enabled: 1
+    path: Assets/Scenes/MiniBossFight5Scene.unity
+    guid: 91202be507d7dde488f2cf84f59698df
+  - enabled: 1
+    path: Assets/Scenes/MiniBossFight6Scene.unity
+    guid: d5e3b327950886c449ea12eb6b59cfb4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

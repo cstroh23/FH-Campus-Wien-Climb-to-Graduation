@@ -60,14 +60,22 @@ public class DialogManager : MonoBehaviour {
                     if (SceneManager.GetActiveScene().name == "Semester4Scene") {
                         SceneManager.LoadScene("BossFight4Scene");
                     }
+                }
+                bool miniBossDefeated = PlayerPrefs.GetInt("MiniBossDefeated", 0) == 1;
+
+                if (boss && miniBossDefeated) { // Boss nur aktiv, wenn MiniBoss besiegt wurde
                     if (SceneManager.GetActiveScene().name == "Semester5Scene") {
                         SceneManager.LoadScene("BossFight5Scene");
                     }
                     if (SceneManager.GetActiveScene().name == "Semester6Scene") {
                         SceneManager.LoadScene("BossFight6Scene");
                     }
+                } 
+                else if (boss && !miniBossDefeated) {
+                    Debug.Log("Du musst zuerst den MiniBoss besiegen!");
                 }
-                if (miniBoss) {
+
+                if (miniBoss && !miniBossDefeated) { // MiniBoss nur zugänglich, wenn er noch nicht besiegt wurde
                     if (SceneManager.GetActiveScene().name == "Semester5Scene") {
                         SceneManager.LoadScene("MiniBossFight5Scene");
                     }
