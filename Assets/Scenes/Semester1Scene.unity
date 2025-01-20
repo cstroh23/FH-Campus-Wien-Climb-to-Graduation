@@ -528,7 +528,7 @@ MonoBehaviour:
     - Hello ******. You are just on time.
     - It's time to take the theoretical exam.
     - You need atleast 60% to pass the exam.
-    - '[Press Enter to continue ...]'
+    - '[Press E to continue ...]'
   boss: 1
   miniBoss: 0
 --- !u!50 &231715524

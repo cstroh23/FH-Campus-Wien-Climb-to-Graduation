@@ -805,7 +805,7 @@ MonoBehaviour:
     - Hello ******. The exam is starting now.
     - The exam consists of the contents of two teachers.
     - 70% of the content is from one teacher, and 30% from the other. Good luck!
-    - '[Press Enter to continue ...]'
+    - '[Press E to continue ...]'
   boss: 1
   miniBoss: 0
 --- !u!50 &231715524
