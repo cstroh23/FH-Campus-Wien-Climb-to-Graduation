@@ -100,6 +100,23 @@ public class Player_FightMovement : MonoBehaviour
             Die();
         }
     }
+    public void HealPlayer(int healAmount)
+    {
+        currentHealth += healAmount;
+
+    // Ensure the health doesn't exceed the maximum health
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+    // Update the health bar to reflect the new health value
+        healthBar.setHealth(currentHealth);
+
+        Debug.Log($"Player healed by {healAmount}. Current Health: {currentHealth}");
+}
+
+
 
     private void Die()
     {
