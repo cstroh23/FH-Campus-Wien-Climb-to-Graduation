@@ -632,12 +632,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You have managed to beat the boss in the first semster
+  m_Text: 'Not bad. You''ve done a good job and reached 85%.
 
-    Congratulation
-
-    Now
-    you can move on to Semester 2
+    You can now move
+    on to the practical exam.
 
     [Press E to continue]'
 --- !u!222 &502164154
@@ -891,6 +889,7 @@ MonoBehaviour:
   fireballPrefab: {fileID: 5349803620906874325, guid: c9e68741343443e45ac97ee7cdf92623, type: 3}
   fireRate: 2
   fireballSpeed: 5
+  difficutlyManager: {fileID: 0}
 --- !u!82 &590765506
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2758,12 +2757,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You have Lost the BossFight
+  m_Text: 'I''m sorry. But the theoretical exam was negative.
 
-    Try the semsester again
+    Please try again.
 
-    [Press E
-    to continue]'
+    [Press
+    E to continue]'
 --- !u!222 &1244819639
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3881,6 +3880,7 @@ MonoBehaviour:
   fireballPrefab: {fileID: 5349803620906874325, guid: c9e68741343443e45ac97ee7cdf92623, type: 3}
   fireRate: 2
   fireballSpeed: 5
+  difficutlyManager: {fileID: 0}
 --- !u!82 &1710792682
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4771,6 +4771,7 @@ MonoBehaviour:
   fireballPrefab: {fileID: 5349803620906874325, guid: c9e68741343443e45ac97ee7cdf92623, type: 3}
   fireRate: 2
   fireballSpeed: 5
+  difficutlyManager: {fileID: 0}
 --- !u!82 &2081671732
 AudioSource:
   m_ObjectHideFlags: 0

@@ -632,12 +632,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You have managed to beat the boss in the first semster
+  m_Text: 'Wow! That was a close one. You managed to achieve exactly 60% on this
+    exam!
 
-    Congratulation
-
-    Now
-    you can move on to Semester 2
+    You can now move on to semester 5. Your ECTS have been registered
+    in our system.
 
     [Press E to continue]'
 --- !u!222 &502164154
@@ -2854,12 +2853,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You have Lost the BossFight
+  m_Text: 'Better luck next time, you just didn''t achieve enough points for this
+    exam.
 
     Try the semsester again
 
-    [Press E
-    to continue]'
+    [Press E to continue]'
 --- !u!222 &1244819639
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -632,12 +632,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You have managed to beat the boss in the first semster
+  m_Text: 'Dear ******. Congratulations on passing the last exam and with this also
+    finishing your student career at our colleague! We had a great time with you
+    and wish you all the best in your job career!
 
-    Congratulation
-
-    Now
-    you can move on to Semester 2
+    As of this date, you''ve successfully
+    graduated from colleague!
 
     [Press E to continue]'
 --- !u!222 &502164154
@@ -2904,12 +2904,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You have Lost the BossFight
+  m_Text: 'We are so sorry to tell you that sadly you did not make it through the
+    last exam.
 
-    Try the semsester again
+    Please wait for a given time and repeat the semester again.
 
-    [Press E
-    to continue]'
+    [Press
+    E to continue]'
 --- !u!222 &1244819639
 CanvasRenderer:
   m_ObjectHideFlags: 0
