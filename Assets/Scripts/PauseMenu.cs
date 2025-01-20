@@ -41,4 +41,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;         // Spielgeschwindigkeit zurücksetzen
         SceneManager.LoadScene("HomeScene"); // Main Menu Szene laden
     }
+      public void RestartLevel()
+    {
+        Time.timeScale = 1f; // Spielgeschwindigkeit zurücksetzen
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Aktuelle Szene neu laden
+    }
 }
